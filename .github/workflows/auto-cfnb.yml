@@ -1,0 +1,53 @@
+name: Auto CFNB IP Optimization
+
+on:
+  schedule:
+    # cron 表达式：每 10 分钟运行一次
+    - cron: '*/10 * * * *'
+  # 允许在 Actions 页面手动点击运行，方便测试
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  run-optimization:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10' # 根据你的实际开发环境调整
+
+      # 如果你有 requirements.txt，解除下面两行的注释
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Generate config.json from Secrets
+        # 这里你需要根据你实际 config.json 的格式来修改。
+        # 这一步的作用是将你在 GitHub Secrets 中存的变量，动态写成一个 config.json 供主程序读取。
+        run: |
+          cat <<EOF > config.json
+          {
+            "cloudflare_token": "${{ secrets.CF_API_TOKEN }}",
+            "wxpusher_token": "${{ secrets.WXPUSHER_TOKEN }}",
+            "other_config": "your_other_values"
+          }
+          EOF
+
+      - name: Run main script
+        run: python main.py
+
+      - name: Commit and Push changes
+        # 这一步会自动把跑出来的 ip.txt (或其它变更) 推送回仓库
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add ip.txt 
+          # 如果没有变化，不执行 commit 以免报错
+          git commit -m "Auto Update CF Nodes [skip ci]" || echo "No changes to commit"
+          git push
