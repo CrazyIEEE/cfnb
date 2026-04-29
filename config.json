@@ -122,7 +122,7 @@
     ],
     "_comment_BLOCKED_COUNTRIES": "【仅DNS】需要屏蔽的国家代码列表",
 
-    "DNS_UPDATE_TARGET_COUNT": 15,
+    "DNS_UPDATE_TARGET_COUNT": 25,
     "_comment_DNS_UPDATE_TARGET_COUNT": "DNS 更新时目标 IP 数量（仅当调用时未指定时使用）",
 
     "BANDWIDTH_SIZE_MB": 0.5,
