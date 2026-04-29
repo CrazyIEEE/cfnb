@@ -33,9 +33,14 @@ jobs:
         run: |
           cat <<EOF > config.json
           {
-            "cloudflare_token": "${{ secrets.CF_API_TOKEN }}",
-            "wxpusher_token": "${{ secrets.WXPUSHER_TOKEN }}",
-            "other_config": "your_other_values"
+            "USE_GLOBAL_MODE": true,
+            "GLOBAL_TOP_N": 10000,
+            "PER_COUNTRY_TOP_N": 200,
+            "BANDWIDTH_CANDIDATES": 2000,
+            "ENABLE_WXPUSHER": false,
+            "FILTER_BLOCKED_COUNTRIES_ENABLED": false
+
+   
           }
           EOF
 
