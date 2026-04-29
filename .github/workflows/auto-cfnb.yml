@@ -34,60 +34,60 @@ jobs:
           cat <<EOF > config.json
           {
            
-    "_comment": "Cloudflare IP 优选工具配置文件 - 请根据需求修改下方参数",
+    #"_comment": "Cloudflare IP 优选工具配置文件 - 请根据需求修改下方参数",
 
     "USE_GLOBAL_MODE": true,
-    "_comment_USE_GLOBAL_MODE": "true=全局最优15个；false=每个国家最优1个",
+    #"_comment_USE_GLOBAL_MODE": "true=全局最优15个；false=每个国家最优1个",
 
     "GLOBAL_TOP_N": 10000,
-    "_comment_GLOBAL_TOP_N": "全局模式下最终保留的节点数量",
+    #"_comment_GLOBAL_TOP_N": "全局模式下最终保留的节点数量",
 
     "PER_COUNTRY_TOP_N": 200,
-    "_comment_PER_COUNTRY_TOP_N": "分国家模式下每个国家保留的节点数量",
+    #"_comment_PER_COUNTRY_TOP_N": "分国家模式下每个国家保留的节点数量",
 
     "BANDWIDTH_CANDIDATES": 2000,
-    "_comment_BANDWIDTH_CANDIDATES": "进入带宽测速的候选节点数（从TCP通过者中选取前N个）",
+    #"_comment_BANDWIDTH_CANDIDATES": "进入带宽测速的候选节点数（从TCP通过者中选取前N个）",
 
     "TCP_PROBES": 3,
-    "_comment_TCP_PROBES": "每个节点测试 TCP 连接的次数",
+    #"_comment_TCP_PROBES": "每个节点测试 TCP 连接的次数",
 
     "MIN_SUCCESS_RATE": 1.0,
-    "_comment_MIN_SUCCESS_RATE": "TCP 最低成功率阈值（0.0~1.0），低于此值的节点直接淘汰",
+    #"_comment_MIN_SUCCESS_RATE": "TCP 最低成功率阈值（0.0~1.0），低于此值的节点直接淘汰",
 
     "TIMEOUT": 2.0,
-    "_comment_TIMEOUT": "单次 TCP 连接超时时间（秒）",
+    #"_comment_TIMEOUT": "单次 TCP 连接超时时间（秒）",
 
     "SOCKET_DEFAULT_TIMEOUT": 3,
-    "_comment_SOCKET_DEFAULT_TIMEOUT": "全局 Socket 默认超时（秒），防止永久阻塞",
+    #"_comment_SOCKET_DEFAULT_TIMEOUT": "全局 Socket 默认超时（秒），防止永久阻塞",
 
     "PROGRESS_PRINT_INTERVAL": 1,
-    "_comment_PROGRESS_PRINT_INTERVAL": "进度打印刷新间隔（秒），避免频繁 I/O",
+    #"_comment_PROGRESS_PRINT_INTERVAL": "进度打印刷新间隔（秒），避免频繁 I/O",
 
     "FILTER_COUNTRIES_ENABLED": false,
-    "_comment_FILTER_COUNTRIES_ENABLED": "是否启用国家过滤（仅保留指定国家的节点）",
+    #"_comment_FILTER_COUNTRIES_ENABLED": "是否启用国家过滤（仅保留指定国家的节点）",
 
     "ALLOWED_COUNTRIES": ["US"],
-    "_comment_ALLOWED_COUNTRIES": "允许的国家代码列表（如 US, JP），仅在 FILTER_COUNTRIES_ENABLED=true 时生效",
+    #"_comment_ALLOWED_COUNTRIES": "允许的国家代码列表（如 US, JP），仅在 FILTER_COUNTRIES_ENABLED=true 时生效",
 
     "ENABLE_WXPUSHER": false,
-    "_comment_ENABLE_WXPUSHER": "是否启用 WxPusher 微信通知",
+    #"_comment_ENABLE_WXPUSHER": "是否启用 WxPusher 微信通知",
 
     "WXPUSHER_APP_TOKEN": "your_app_token_here",
-    "_comment_WXPUSHER_APP_TOKEN": "【请填写你自己的 WxPusher APP_TOKEN】",
+    #"_comment_WXPUSHER_APP_TOKEN": "【请填写你自己的 WxPusher APP_TOKEN】",
 
     "WXPUSHER_UIDS": ["your_uid_here"],
-    "_comment_WXPUSHER_UIDS": "【请填写接收通知的用户 UID 列表】",
+    #"_comment_WXPUSHER_UIDS": "【请填写接收通知的用户 UID 列表】",
 
     "WXPUSHER_API_URL": "http://wxpusher.zjiecode.com/api/send/message",
-    "_comment_WXPUSHER_API_URL": "WxPusher 消息发送 API 地址（一般无需修改）",
+    #"_comment_WXPUSHER_API_URL": "WxPusher 消息发送 API 地址（一般无需修改）",
 
     "NOTIFY_TIMEOUT": 3,
-    "_comment_NOTIFY_TIMEOUT": "微信通知 API 读取超时（秒）",
+    #"_comment_NOTIFY_TIMEOUT": "微信通知 API 读取超时（秒）",
 
     "NOTIFY_CONNECT_TIMEOUT": 3,
-    "_comment_NOTIFY_CONNECT_TIMEOUT": "微信通知 API 连接超时（秒）",
+    #"_comment_NOTIFY_CONNECT_TIMEOUT": "微信通知 API 连接超时（秒）",
 
-    "_comment_cf_dns": "Cloudflare DNS 批量更新配置",
+    #"_comment_cf_dns": "Cloudflare DNS 批量更新配置",
     "CF_ENABLED": false,
     "CF_API_TOKEN": "",
     "CF_ZONE_ID": "",
@@ -95,9 +95,9 @@ jobs:
     "CF_TTL": 60,
     "CF_PROXIED": false,
     "CF_DNS_CONNECT_TIMEOUT": 3,
-    "_comment_CF_DNS_CONNECT_TIMEOUT": "Cloudflare API 连接超时（秒）",
+    #"_comment_CF_DNS_CONNECT_TIMEOUT": "Cloudflare API 连接超时（秒）",
     "CF_DNS_READ_TIMEOUT": 3,
-    "_comment_CF_DNS_READ_TIMEOUT": "Cloudflare API 读取超时（秒）",
+    #"_comment_CF_DNS_READ_TIMEOUT": "Cloudflare API 读取超时（秒）",
 
     "ADDITIONAL_SOURCES": [
         {
@@ -109,97 +109,97 @@ jobs:
             "enabled": true
         }
     ],
-    "_comment_ADDITIONAL_SOURCES": "所有数据源列表，每个对象包含 url 和 enabled。无需指定格式，程序完全自适应解析（支持标准代码、中文名、emoji国旗、JSON等）",
+    #"_comment_ADDITIONAL_SOURCES": "所有数据源列表，每个对象包含 url 和 enabled。无需指定格式，程序完全自适应解析（支持标准代码、中文名、emoji国旗、JSON等）",
 
     "FETCH_MAX_RETRIES": 3,
-    "_comment_FETCH_MAX_RETRIES": "获取节点列表失败时的最大重试次数",
+    #"_comment_FETCH_MAX_RETRIES": "获取节点列表失败时的最大重试次数",
 
     "FETCH_RETRY_DELAY": 3,
-    "_comment_FETCH_RETRY_DELAY": "获取节点列表重试间隔（秒）",
+    #"_comment_FETCH_RETRY_DELAY": "获取节点列表重试间隔（秒）",
 
     "FETCH_TIMEOUT": 3,
-    "_comment_FETCH_TIMEOUT": "获取节点列表读取超时（秒）",
+    #"_comment_FETCH_TIMEOUT": "获取节点列表读取超时（秒）",
 
     "FETCH_CONNECT_TIMEOUT": 3,
-    "_comment_FETCH_CONNECT_TIMEOUT": "获取节点列表连接超时（秒）",
+    #"_comment_FETCH_CONNECT_TIMEOUT": "获取节点列表连接超时（秒）",
 
     "OUTPUT_FILE": "ip.txt",
-    "_comment_OUTPUT_FILE": "最终结果保存的文件名",
+    #"_comment_OUTPUT_FILE": "最终结果保存的文件名",
 
     "TEST_AVAILABILITY": true,
-    "_comment_TEST_AVAILABILITY": "是否对候选节点进行可用性二次筛选（API检测）",
+    #"_comment_TEST_AVAILABILITY": "是否对候选节点进行可用性二次筛选（API检测）",
 
     "AVAILABILITY_CHECK_API": "https://api.090227.xyz/check",
-    "_comment_AVAILABILITY_CHECK_API": "IP 可用性检测 API 地址",
+    #"_comment_AVAILABILITY_CHECK_API": "IP 可用性检测 API 地址",
 
     "AVAILABILITY_TIMEOUT": 3,
-    "_comment_AVAILABILITY_TIMEOUT": "可用性 API 读取超时（秒）",
+    #"_comment_AVAILABILITY_TIMEOUT": "可用性 API 读取超时（秒）",
 
     "AVAILABILITY_CONNECT_TIMEOUT": 3,
-    "_comment_AVAILABILITY_CONNECT_TIMEOUT": "可用性 API 连接超时（秒）",
+    #"_comment_AVAILABILITY_CONNECT_TIMEOUT": "可用性 API 连接超时（秒）",
 
     "AVAILABILITY_RETRY_MAX": 2,
-    "_comment_AVAILABILITY_RETRY_MAX": "可用性检测整体失败（通过率为0）时的最大重试轮数",
+    #"_comment_AVAILABILITY_RETRY_MAX": "可用性检测整体失败（通过率为0）时的最大重试轮数",
 
     "AVAILABILITY_RETRY_DELAY": 3,
-    "_comment_AVAILABILITY_RETRY_DELAY": "可用性检测重试间隔（秒）",
+    #"_comment_AVAILABILITY_RETRY_DELAY": "可用性检测重试间隔（秒）",
 
     "FILTER_IPV6_AVAILABILITY": true,
-    "_comment_FILTER_IPV6_AVAILABILITY": "【仅DNS】是否过滤落地为 IPv6 的节点",
+    #"_comment_FILTER_IPV6_AVAILABILITY": "【仅DNS】是否过滤落地为 IPv6 的节点",
 
     "FILTER_BLOCKED_COUNTRIES_ENABLED": false,
-    "_comment_FILTER_BLOCKED_COUNTRIES_ENABLED": "【仅DNS】是否屏蔽特定国家的节点",
+    #"_comment_FILTER_BLOCKED_COUNTRIES_ENABLED": "【仅DNS】是否屏蔽特定国家的节点",
 
     "BLOCKED_COUNTRIES": [
         "BD", "BI", "BY", "CD", "CF", "CN", "CU", "DE", "ET", "HK",
         "IR", "KP", "LY", "MO", "NG", "NL", "PK", "RU", "SD", "SO",
         "SY", "TH", "TW", "UA", "VE", "VN", "YE", "ZW"
     ],
-    "_comment_BLOCKED_COUNTRIES": "【仅DNS】需要屏蔽的国家代码列表",
+    #"_comment_BLOCKED_COUNTRIES": "【仅DNS】需要屏蔽的国家代码列表",
 
     "DNS_UPDATE_TARGET_COUNT": 15,
-    "_comment_DNS_UPDATE_TARGET_COUNT": "DNS 更新时目标 IP 数量（仅当调用时未指定时使用）",
+    #"_comment_DNS_UPDATE_TARGET_COUNT": "DNS 更新时目标 IP 数量（仅当调用时未指定时使用）",
 
     "BANDWIDTH_SIZE_MB": 0.5,
-    "_comment_BANDWIDTH_SIZE_MB": "带宽测速下载文件大小（MB）",
+    #"_comment_BANDWIDTH_SIZE_MB": "带宽测速下载文件大小（MB）",
 
     "BANDWIDTH_TIMEOUT": 3,
-    "_comment_BANDWIDTH_TIMEOUT": "单个节点带宽测速超时（秒）",
+    #"_comment_BANDWIDTH_TIMEOUT": "单个节点带宽测速超时（秒）",
 
     "BANDWIDTH_RETRY_MAX": 2,
-    "_comment_BANDWIDTH_RETRY_MAX": "带宽测速整体失败（结果为空）时的最大重试轮数（例如设为2，则总共最多执行2轮）",
+    #"_comment_BANDWIDTH_RETRY_MAX": "带宽测速整体失败（结果为空）时的最大重试轮数（例如设为2，则总共最多执行2轮）",
 
     "BANDWIDTH_RETRY_DELAY": 3,
-    "_comment_BANDWIDTH_RETRY_DELAY": "带宽测速重试间隔（秒）",
+    #"_comment_BANDWIDTH_RETRY_DELAY": "带宽测速重试间隔（秒）",
 
     "BANDWIDTH_URL_TEMPLATE": "https://speed.cloudflare.com/__down?bytes={bytes}",
-    "_comment_BANDWIDTH_URL_TEMPLATE": "带宽测速 URL 模板，{bytes} 将被替换为实际字节数",
+    #"_comment_BANDWIDTH_URL_TEMPLATE": "带宽测速 URL 模板，{bytes} 将被替换为实际字节数",
 
     "BANDWIDTH_PROCESS_BUFFER": 2,
-    "_comment_BANDWIDTH_PROCESS_BUFFER": "带宽测速 curl 进程额外缓冲时间（秒）",
+    #"_comment_BANDWIDTH_PROCESS_BUFFER": "带宽测速 curl 进程额外缓冲时间（秒）",
 
     "BANDWIDTH_CONNECT_TIMEOUT": 3,
-    "_comment_BANDWIDTH_CONNECT_TIMEOUT": "curl 测速连接超时（秒）",
+    #"_comment_BANDWIDTH_CONNECT_TIMEOUT": "curl 测速连接超时（秒）",
 
     "MAX_WORKERS": 200,
-    "_comment_MAX_WORKERS": "TCP 并发测试的最大线程数",
+    #"_comment_MAX_WORKERS": "TCP 并发测试的最大线程数",
 
     "AVAILABILITY_WORKERS": 10,
-    "_comment_AVAILABILITY_WORKERS": "可用性检测的并发线程数",
+    #"_comment_AVAILABILITY_WORKERS": "可用性检测的并发线程数",
 
     "FALLBACK_WORKERS": 10,
-    "_comment_FALLBACK_WORKERS": "备用国家查询的并发线程数（当标签无法识别时自动调用可用性 API 查询）",
+    #"_comment_FALLBACK_WORKERS": "备用国家查询的并发线程数（当标签无法识别时自动调用可用性 API 查询）",
 
     "BANDWIDTH_WORKERS": 10,
-    "_comment_BANDWIDTH_WORKERS": "带宽测速的并发线程数",
+    #"_comment_BANDWIDTH_WORKERS": "带宽测速的并发线程数",
 
-    "_comment_retry": "重试策略配置",
+    #"_comment_retry": "重试策略配置",
     "DNS_UPDATE_MAX_RETRIES": 3,
     "DNS_UPDATE_RETRY_DELAY": 3,
     "GITHUB_SYNC_MAX_RETRIES": 3,
     "GITHUB_SYNC_RETRY_DELAY": 3,
     "GIT_SYNC_PROCESS_TIMEOUT": 180,
-    "_comment_GIT_SYNC_PROCESS_TIMEOUT": "Git 同步子进程最大运行时间（秒）"
+    #"_comment_GIT_SYNC_PROCESS_TIMEOUT": "Git 同步子进程最大运行时间（秒）"
 
    
           }
