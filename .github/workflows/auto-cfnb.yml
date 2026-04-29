@@ -38,4 +38,4 @@ jobs:
           git add ip.txt 
           # 如果没有变化，不执行 commit 以免报错
           git commit -m "Auto Update CF Nodes [skip ci]" || echo "No changes to commit"
-          git push
+          git push origin main --force
