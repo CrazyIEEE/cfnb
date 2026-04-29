@@ -23,9 +23,14 @@ jobs:
         with:
           python-version: '3.10' # 根据你的实际开发环境调整
 
-      # 如果你有 requirements.txt，解除下面两行的注释
       - name: Install dependencies
         run: pip install -r requirements.txt
+
+      # [核心修改] 精准匹配你的三个变量名进行注入
+      - name: Inject Secrets into config.json
+        run: |
+          jq '.CF_API_TOKEN = "${{ secrets.CF_API_TOKEN }}" | .CF_ZONE_ID = "${{ secrets.CF_ZONE_ID }}" | .CF_DNS_RECORD_NAME = "${{ secrets.CF_DNS_RECORD_NAME }}"' config.json > tmp.json
+          mv tmp.json config.json
 
       - name: Run main script
         run: python main.py
@@ -35,7 +40,12 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add ip.txt 
+          
+          # 强制暂存 ip.txt，防止被 .gitignore 拦截
+          git add -f ip.txt 
+          
           # 如果没有变化，不执行 commit 以免报错
           git commit -m "Auto Update CF Nodes [skip ci]" || echo "No changes to commit"
+          
+          # 强制覆盖推送到 main 分支
           git push origin main --force
