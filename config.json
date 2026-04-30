@@ -10,7 +10,7 @@
     "PER_COUNTRY_TOP_N": 200,
     "_comment_PER_COUNTRY_TOP_N": "分国家模式下每个国家保留的节点数量",
 
-    "BANDWIDTH_CANDIDATES": 300,
+    "BANDWIDTH_CANDIDATES": 350,
     "_comment_BANDWIDTH_CANDIDATES": "进入带宽测速的候选节点数（从TCP通过者中选取前N个）",
 
     "TCP_PROBES": 3,
@@ -53,7 +53,7 @@
     "_comment_NOTIFY_CONNECT_TIMEOUT": "微信通知 API 连接超时（秒）",
 
     "_comment_cf_dns": "Cloudflare DNS 批量更新配置",
-    "CF_ENABLED": true,
+    "CF_ENABLED": false,
     "CF_API_TOKEN": "your_CF_API_TOKEN",
     "CF_ZONE_ID": "your_CF_ZONE_ID",
     "CF_DNS_RECORD_NAME": "your_CF_DNS_RECORD_NAME",
