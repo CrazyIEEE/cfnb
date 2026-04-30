@@ -31,7 +31,7 @@
     "FILTER_COUNTRIES_ENABLED": false,
     "_comment_FILTER_COUNTRIES_ENABLED": "是否启用国家过滤（仅保留指定国家的节点）",
 
-    "ALLOWED_COUNTRIES": ["US"],
+    "ALLOWED_COUNTRIES": ["US", "JP", "SG", "KR", "TW", "HK"],
     "_comment_ALLOWED_COUNTRIES": "允许的国家代码列表（如 US, JP），仅在 FILTER_COUNTRIES_ENABLED=true 时生效",
 
     "ENABLE_WXPUSHER": false,
@@ -116,9 +116,9 @@
     "_comment_FILTER_BLOCKED_COUNTRIES_ENABLED": "【仅DNS】是否屏蔽特定国家的节点",
 
     "BLOCKED_COUNTRIES": [
-        "BD", "BI", "BY", "CD", "CF", "CN", "CU", "DE", "ET", "HK",
+        "BD", "BI", "BY", "CD", "CF", "CN", "CU", "ET",
         "IR", "KP", "LY", "MO", "NG", "NL", "PK", "RU", "SD", "SO",
-        "SY", "TH", "TW", "UA", "VE", "VN", "YE", "ZW"
+        "SY", "TH", "UA", "VE", "VN", "YE", "ZW"
     ],
     "_comment_BLOCKED_COUNTRIES": "【仅DNS】需要屏蔽的国家代码列表",
 
